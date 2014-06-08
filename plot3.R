@@ -10,8 +10,8 @@ electric$Global_reactive_power = as.numeric(as.character(electric$Global_reactiv
 electric$DateTime =  strptime( paste(as.Date(electric$Date, format="%d/%m/%Y"), electric$Time), format="%Y-%m-%d %H:%M:%S")
 
 png("./plot3.png", width=480, height=480)
-sub_metering_col<-c("black","red","purple3")
-plot(electric$DateTime, electric$Sub_metering_1, type="l", col=sub_metering_col[1], ylab="Energy Sub Metering", xlab="")
+sub_metering_col<-c("black","red","blue")
+plot(electric$DateTime, electric$Sub_metering_1, type="l", col=sub_metering_col[1], ylab="Energy sub metering", xlab="")
 lines(electric$DateTime, electric$Sub_metering_2, type="l", col=sub_metering_col[2], ylab="Global Active Power (kilowatts)", xlab="")
 lines(electric$DateTime, electric$Sub_metering_3, type="l", col=sub_metering_col[3], ylab="Global Active Power (kilowatts)", xlab="")
 legend("topright", names(electric)[c(7,8,9)], lty=c(1,1,1), col=sub_metering_col)
